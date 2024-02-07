@@ -157,7 +157,7 @@ def source(self):
 
 
 def get_readable_message():
-    msg = '<b>⚡Powered by JISSHU BOTS</b>\n\n'
+    msg = '<b>⚡Powered by @JISSHU_BOTS</b>\n\n'
     button = None
     tasks = len(download_dict)
     currentTime = get_readable_time(time() - botStartTime)
@@ -176,8 +176,8 @@ def get_readable_message():
         if download.status() not in [MirrorStatus.STATUS_SPLITTING, MirrorStatus.STATUS_SEEDING]:
             msg += f"\n<code>{progress_bar(download.progress())}</code> {download.progress()}"
             msg += f"\n{download.processed_bytes()} of {download.size()}"
-            msg += f"\nSpeed: {download.speed()}"
-            msg += f'\nEstimated: {download.eta()}'
+            msg += f"\n🚀Speed: {download.speed()}"
+            msg += f'\n⏳Estimated: {download.eta()}'
             if hasattr(download, 'seeders_num'):
                 try:
                     msg += f"\nSeeders: {download.seeders_num()} | Leechers: {download.leechers_num()}"
@@ -191,7 +191,7 @@ def get_readable_message():
             msg += f"\nTime: {download.seeding_time()}"
         else:
             msg += f"\nSize: {download.size()}"
-        msg += f"\nElapsed: {get_readable_time(time() - download.message.date.timestamp())}"
+        msg += f"\n🕦Elapsed: {get_readable_time(time() - download.message.date.timestamp())}"
         msg += f"\n/stop_{download.gid()[:8]}\n\n"
     if len(msg) == 0:
         return None, None
